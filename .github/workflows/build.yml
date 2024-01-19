@@ -25,6 +25,12 @@ jobs:
             - name: Build and Generate Nuxt 3 Static Site
               run: npm run generate
 
+            - name: Delete build branch
+              uses: dawidd6/action-delete-branch@v3
+              with:
+                  github_token: ${{github.token}}
+                  branches: build
+
             - name: Push
 
               uses: s0/git-publish-subdir-action@develop
