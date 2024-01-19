@@ -8,7 +8,7 @@
 			<PrimitivesMainTitle
 				>Planne<span class="blue">rsvp</span></PrimitivesMainTitle
 			>
-			<h2 class="uppercase">Coming soon</h2>
+			<h2 class="uppercase">Coming soon..</h2>
 		</article>
 	</main>
 </template>
