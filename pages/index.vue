@@ -4,19 +4,15 @@
 	</main>
 </template>
 <script setup lang="ts">
-const mouseCoords = reactive({ x: 0, y: 0 });
-const customCursor = ref(null) as Ref<null | HTMLDivElement>;
-
-function getMouseCoords(e: MouseEvent) {
-	mouseCoords.x = e.clientX;
-	mouseCoords.y = e.clientY;
-}
-onBeforeMount(() => {
-	document.addEventListener('mousemove', getMouseCoords);
-});
-
-onBeforeUnmount(() => {
-	document.removeEventListener('mousemove', getMouseCoords);
+useHead({
+	title: 'PlanneRSVP',
+	meta: [
+		{
+			name: 'description',
+			content:
+				'Create and manage your events guest lists with a simple click.',
+		},
+	],
 });
 </script>
 <style scoped>
