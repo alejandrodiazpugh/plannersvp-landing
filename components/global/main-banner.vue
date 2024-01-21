@@ -14,6 +14,7 @@
 				<p>{{ card.text }}</p>
 			</PrimitivesCard>
 		</div>
+		<div class="divider-line"></div>
 	</section>
 </template>
 <script setup lang="ts">

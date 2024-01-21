@@ -62,6 +62,7 @@ const emit = defineEmits(['buttonClick']);
 	background-color: transparent;
 	outline: 2px solid var(--blue-200);
 	color: var(--blue-200);
+	transition: 300ms all;
 }
 
 .button-outlined:hover,
