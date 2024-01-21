@@ -10,6 +10,8 @@
 			<PrimitivesCard
 				v-for="card in cards"
 				:key="card.title"
+				:class="card.index"
+				class="card"
 				:title="card.title">
 				<p>{{ card.text }}</p>
 			</PrimitivesCard>
@@ -22,14 +24,17 @@ const cards = [
 	{
 		title: 'Create',
 		text: 'Set up an event, number of guests, and upload your list.',
+		index: 'first',
 	},
 	{
 		title: 'Manage',
 		text: 'Add the RSVP form, embed it to a website, or send it directly to them',
+		index: 'second',
 	},
 	{
 		title: 'Process',
 		text: 'Track guests responses, their form submissions, and more!',
+		index: 'third',
 	},
 ];
 </script>
@@ -51,5 +56,18 @@ const cards = [
 	display: flex;
 	justify-content: center;
 	gap: 50px;
+}
+
+.card {
+	animation: downwards 3s;
+	animation-timeline: view();
+	opacity: 0;
+}
+
+.card.second {
+	animation-delay: 1s;
+}
+.card.third {
+	animation-delay: 1.5s;
 }
 </style>

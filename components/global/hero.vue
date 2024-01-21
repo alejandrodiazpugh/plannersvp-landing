@@ -50,9 +50,6 @@
 }
 
 @keyframes center {
-	from {
-		right: -100%;
-	}
 	to {
 		right: 20%;
 		opacity: 0;
@@ -92,17 +89,6 @@
 
 .third {
 	animation-delay: 3s;
-}
-
-@keyframes downwards {
-	from {
-		transform: translateY(-100px);
-		opacity: 0;
-	}
-	to {
-		transform: translateY(0px);
-		opacity: 1;
-	}
 }
 
 @keyframes fill-color-element {
