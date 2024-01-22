@@ -22,7 +22,6 @@
 <script setup lang="ts"></script>
 <style scoped>
 .hero {
-	position: relative;
 	width: 100vw;
 	height: 100svh;
 	display: flex;
@@ -41,6 +40,7 @@
 }
 
 .logo-container {
+	position: fixed;
 	width: min(700px, 50vw);
 	height: 100%;
 	position: absolute;
