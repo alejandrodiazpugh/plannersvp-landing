@@ -112,7 +112,6 @@ body {
 		'Helvetica Neue', sans-serif;
 	padding: 0;
 	overflow-x: hidden;
-	overflow-y: hidden;
 }
 
 h1 {
@@ -134,10 +133,13 @@ h3 {
 	line-height: 36.8px;
 }
 
+p {
+	line-height: 1.5;
+}
+
 p.large {
 	font-size: 20px;
 	font-weight: 400;
-	line-height: 115%;
 }
 p.regular {
 	font-size: 16px;
@@ -165,5 +167,26 @@ body {
 	}
 	.custom-cursor {
 		background-color: var(--dark) !important;
+	}
+}
+
+div.divider-line {
+	width: max(500px, 80vw);
+	height: 1px;
+	background-color: var(--main-disabled);
+	margin-inline: auto;
+	margin-block: 30px;
+}
+
+/* ANIMATIONS */
+
+@keyframes downwards {
+	from {
+		transform: translateY(-100px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 1;
 	}
 }

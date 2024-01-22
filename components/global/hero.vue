@@ -1,15 +1,19 @@
 <template>
 	<section class="hero">
-		<div class="background-circles"></div>
+		<div class="logo-container">
+			<Logo />
+		</div>
 		<div class="hero-titles">
-			<h1>Planne<span class="blue-200 fill-color-element">RSVP</span></h1>
-			<h2>Simplify your guest lists</h2>
-			<p class="large">
+			<h1 class="downwards first">
+				Planne<span class="fill-color-element">RSVP</span>
+			</h1>
+			<h2 class="downwards second">Simplify your guest lists</h2>
+			<p class="large downwards second">
 				Keep track of your events' attendees, their form submissions,
 				and their status for your next big gathering
 			</p>
 		</div>
-		<div class="hero-cta-buttons">
+		<div class="hero-cta-buttons downwards third">
 			<PrimitivesButton>Try it out</PrimitivesButton>
 			<PrimitivesButton outlined>Contact sales</PrimitivesButton>
 		</div>
@@ -18,12 +22,14 @@
 <script setup lang="ts"></script>
 <style scoped>
 .hero {
-	position: relative;
-	min-height: 600px;
+	width: 100vw;
+	height: 100svh;
 	display: flex;
 	flex-direction: column;
 	padding-inline: 100px;
-	padding-block: 90px;
+	padding-block-start: min(200px, 10%);
+	display: flex;
+	flex-direction: column;
 	gap: 44px;
 	background: linear-gradient(
 		180deg,
@@ -33,14 +39,23 @@
 	);
 }
 
-.background-circles {
-	position: absolute;
-	background-image: url('/svg/main-circle.svg');
-	width: 550px;
+.logo-container {
+	position: fixed;
+	width: min(700px, 50vw);
 	height: 100%;
-	background-repeat: no-repeat;
-	right: -300px;
+	position: absolute;
+	right: -18%;
+	animation: center forwards;
+	animation-timeline: scroll();
 }
+
+@keyframes center {
+	to {
+		right: 20%;
+		opacity: 0;
+	}
+}
+
 .hero-titles {
 	display: flex;
 	flex-direction: column;
@@ -58,8 +73,22 @@
 .fill-color-element {
 	animation: fill-color-element 2s forwards;
 	transform-origin: left;
+}
+
+.downwards {
+	opacity: 0;
+	animation: downwards 3s forwards;
+}
+.first {
 	animation-delay: 1s;
-	animation-timeline: scroll();
+}
+
+.second {
+	animation-delay: 2s;
+}
+
+.third {
+	animation-delay: 3s;
 }
 
 @keyframes fill-color-element {
