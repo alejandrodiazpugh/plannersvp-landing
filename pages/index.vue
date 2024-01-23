@@ -1,8 +1,13 @@
 <template>
+	<Header />
 	<main class="main">
 		<Hero />
 		<MainBanner />
+		<WebsiteQuote />
+		<WebsiteAddWidget />
+		<MainForm />
 	</main>
+	<Footer />
 </template>
 <script setup lang="ts">
 useHead({

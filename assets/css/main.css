@@ -105,6 +105,14 @@ select {
 	color: var(--blue-300);
 }
 
+.block {
+	display: block;
+}
+
+.padding-main {
+	padding-inline: 100px;
+}
+
 /* FONTS */
 body {
 	font-family: 'Epilogue', system-ui, -apple-system, BlinkMacSystemFont,
@@ -146,6 +154,10 @@ p.regular {
 	font-weight: 400;
 }
 
+.required {
+	color: var(--blue-200);
+}
+
 /* BACKGROUND */
 
 body {
@@ -175,7 +187,7 @@ div.divider-line {
 	height: 1px;
 	background-color: var(--main-disabled);
 	margin-inline: auto;
-	margin-block: 30px;
+	margin-block: 100px;
 }
 
 /* ANIMATIONS */
@@ -189,4 +201,20 @@ div.divider-line {
 		transform: translateY(0px);
 		opacity: 1;
 	}
+}
+
+/* TRANSITION API ANIMATIONS */
+
+.swipe-enter-active,
+.swipe-leave-active {
+	transition: all 0.9s;
+	transform: translateX(0px);
+}
+
+.swipe-enter-from {
+	transform: translateX(-1000px);
+}
+
+.swipe-leave-to {
+	transform: translateX(1000px);
 }

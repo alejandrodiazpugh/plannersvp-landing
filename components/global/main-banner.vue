@@ -61,7 +61,8 @@ const cards = [
 .card {
 	animation: downwards 3s;
 	animation-timeline: view();
-	opacity: 0;
+	animation-range-start: cover;
+	animation-range-end: 70%;
 }
 
 .card.second {

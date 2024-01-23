@@ -1,5 +1,5 @@
 <template>
-	<section class="hero">
+	<section class="hero padding-main">
 		<div class="logo-container">
 			<Logo />
 		</div>
@@ -26,7 +26,6 @@
 	height: 100svh;
 	display: flex;
 	flex-direction: column;
-	padding-inline: 100px;
 	padding-block-start: min(200px, 10%);
 	display: flex;
 	flex-direction: column;
