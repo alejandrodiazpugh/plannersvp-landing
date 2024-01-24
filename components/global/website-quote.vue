@@ -18,11 +18,12 @@
                 >Get a free quote</PrimitivesButton
             >
         </div>
-        <div class="image-container">
+        <div class="image-container" ref="carousselImage">
             <NuxtImg
+                :key="currentImage.name"
                 :src="currentImage.src"
                 :alt="currentImage.name"
-                class="quote-image"
+                class="quote-image swipe"
             />
         </div>
     </section>
@@ -60,8 +61,7 @@ const currentImage = computed(() => {
     return images[Math.abs(currentIndex.value) % images.length];
 });
 
-watchEffect(() => {
-    const newName = currentImage.value.name;
+watch(currentImage, (newValue) => {
     setTimeout(() => {
         currentEventType.value?.classList.remove("typing");
     }, 5000);
@@ -86,6 +86,7 @@ onMounted(() => {
     flex-basis: 50%;
     aspect-ratio: 1;
     display: flex;
+    position: relative;
 }
 
 .quote-image {
@@ -126,6 +127,23 @@ onMounted(() => {
 }
 .typing {
     animation: typing 5s steps(60, end), blink-caret 0.75s step-end infinite;
+}
+
+.swipe {
+    animation: swipe 5s forwards;
+}
+
+@keyframes swipe {
+    from {
+        transform: translateX(-100%);
+    }
+    20%,
+    90% {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 @keyframes typing {
