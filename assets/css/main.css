@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&display=swap");
 :root {
-	--dark: #202124;
-	--dark-200: #181c29;
-	--light-100: #fff;
-	--blue-100: #71ccd8;
-	--blue-200: #718cd8;
-	--blue-300: #715dd8;
-	--main-disabled: #cfd4e2;
+    --dark: #202124;
+    --dark-200: #181c29;
+    --light-100: #fff;
+    --blue-100: #71ccd8;
+    --blue-200: #718cd8;
+    --blue-300: #715dd8;
+    --main-disabled: #cfd4e2;
 }
 
 /* Box sizing rules */
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Remove default margin */
@@ -27,37 +27,37 @@ figure,
 blockquote,
 dl,
 dd {
-	margin: 0;
+    margin: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-	list-style: none;
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
 }
 
 /* Set core root defaults */
 html:focus-within {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* Set core body defaults */
 body {
-	min-height: 100vh;
-	text-rendering: optimizeSpeed;
-	line-height: 1.5;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
 }
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-	text-decoration-skip-ink: auto;
+    text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
 img,
 picture {
-	max-width: 100%;
-	display: block;
+    max-width: 100%;
+    display: block;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -65,156 +65,172 @@ input,
 button,
 textarea,
 select {
-	font: inherit;
+    font: inherit;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-	html:focus-within {
-		scroll-behavior: auto;
-	}
+    html:focus-within {
+        scroll-behavior: auto;
+    }
 
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* UTILITY CLASSES */
 .uppercase {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 .lowercase {
-	text-transform: lowercase;
+    text-transform: lowercase;
 }
 .capitalize {
-	text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .blue-100 {
-	color: var(--blue-100);
+    color: var(--blue-100);
 }
 .blue-200 {
-	color: var(--blue-200);
+    color: var(--blue-200);
 }
 .blue-300 {
-	color: var(--blue-300);
+    color: var(--blue-300);
 }
 
 .block {
-	display: block;
+    display: block;
+}
+.max-content {
+    width: max-content;
+}
+
+.fit-content {
+    width: fit-content;
 }
 
 .padding-main {
-	padding-inline: 100px;
+    padding-inline: 100px;
 }
 
 /* FONTS */
 body {
-	font-family: 'Epilogue', system-ui, -apple-system, BlinkMacSystemFont,
-		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-		'Helvetica Neue', sans-serif;
-	padding: 0;
-	overflow-x: hidden;
+    font-family: "Epilogue", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 h1 {
-	font-size: 72px;
-	font-weight: 700;
-	color: var(--light);
-	text-transform: uppercase;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--light);
+    text-transform: uppercase;
 }
 h2 {
-	font-size: 40px;
-	font-weight: 600;
-	text-transform: capitalize;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
 h3 {
-	font-size: 32px;
-	font-weight: 600;
-	text-transform: capitalize;
-	line-height: 36.8px;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 36.8px;
 }
 
 p {
-	line-height: 1.5;
+    line-height: 1.5;
 }
 
 p.large {
-	font-size: 20px;
-	font-weight: 400;
+    font-size: 20px;
+    font-weight: 400;
 }
 p.regular {
-	font-size: 16px;
-	font-weight: 400;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .required {
-	color: var(--blue-200);
+    color: var(--blue-200);
 }
 
 /* BACKGROUND */
 
 body {
-	background-color: var(--dark);
-	color: white;
+    background-color: var(--dark);
+    color: white;
 }
 
 @media (prefers-color-scheme: light) {
-	body {
-		background-color: white;
-		color: var(--dark);
-	}
-	.title {
-		color: var(--dark) !important;
-	}
+    body {
+        background-color: white;
+        color: var(--dark);
+    }
+    .title {
+        color: var(--dark) !important;
+    }
 
-	.blue {
-		color: var(--dark-blue);
-	}
-	.custom-cursor {
-		background-color: var(--dark) !important;
-	}
+    .blue {
+        color: var(--dark-blue);
+    }
+    .custom-cursor {
+        background-color: var(--dark) !important;
+    }
 }
 
 div.divider-line {
-	width: max(500px, 80vw);
-	height: 1px;
-	background-color: var(--main-disabled);
-	margin-inline: auto;
-	margin-block: 100px;
+    width: max(500px, 80vw);
+    height: 1px;
+    background-color: var(--main-disabled);
+    margin-inline: auto;
+    margin-block: 100px;
+}
+
+/* INPUTS */
+input,
+select,
+textarea {
+    font-family: "Epilogue", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
 }
 
 /* ANIMATIONS */
 
 @keyframes downwards {
-	from {
-		transform: translateY(-100px);
-		opacity: 0;
-	}
-	to {
-		transform: translateY(0px);
-		opacity: 1;
-	}
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 
 /* TRANSITION API ANIMATIONS */
 
 .swipe-enter-active,
 .swipe-leave-active {
-	transition: all 0.9s;
-	transform: translateX(0px);
+    transition: all 0.9s;
+    transform: translateX(0px);
 }
 
 .swipe-enter-from {
-	transform: translateX(-1000px);
+    transform: translateX(-1000px);
 }
 
 .swipe-leave-to {
-	transform: translateX(1000px);
+    transform: translateX(1000px);
 }

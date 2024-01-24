@@ -1,80 +1,85 @@
 <template>
-	<button
-		type="button"
-		class="button"
-		:disabled="props.disabled"
-		:class="props.outlined ? 'button-outlined' : ''">
-		<span>
-			<Icon
-				v-if="props.icon"
-				:name="props.icon"
-				:class="props.outlined ? 'outlined-icon' : 'icon'" />
-			<slot />
-		</span>
-	</button>
+    <button
+        type="button"
+        class="button"
+        :disabled="props.disabled"
+        :class="props.outlined ? 'button-outlined' : ''"
+    >
+        <span>
+            <Icon
+                v-if="props.icon"
+                :name="props.icon"
+                :class="props.outlined ? 'outlined-icon' : 'icon'"
+            />
+            <slot />
+        </span>
+    </button>
 </template>
 <script setup lang="ts">
 type Props = {
-	icon?: string;
-	outlined?: boolean;
-	disabled?: boolean;
-	loading?: boolean;
-	fullWidth?: boolean;
+    icon?: string;
+    outlined?: boolean;
+    disabled?: boolean;
+    loading?: boolean;
+    fullWidth?: boolean;
 };
 
 const props = defineProps<Props>();
-const emit = defineEmits(['buttonClick']);
+const emit = defineEmits(["buttonClick"]);
 </script>
 <style scoped>
 .button {
-	background-color: var(--blue-200);
-	outline: none;
-	border: none;
-	border-radius: 30px;
-	padding: 10px 30px;
-	font-size: 24px;
-	color: var(--light);
-	font-weight: 600;
-	cursor: pointer;
-	transition: 300ms all;
+    background-color: var(--blue-200);
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 24px;
+    color: var(--light);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 400ms all;
+    /* box-shadow: 0px 0px 10px var(--blue-200); */
 }
 .button > span {
-	transition: 300ms all;
+    transition: 300ms all;
 }
 
 .button:hover,
 .button:focus-visible {
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-	background-color: var(--blue-300);
+    box-shadow: 0px 0px 10px var(--blue-200);
 }
 
 .button:active {
-	box-shadow: none;
+    box-shadow: none;
 }
 
 .button:disabled {
-	background-color: var(--main-disabled);
-	cursor: default;
-	pointer-events: none;
+    background-color: var(--main-disabled);
+    cursor: default;
+    pointer-events: none;
 }
 
 .button-outlined {
-	background-color: transparent;
-	outline: 2px solid var(--blue-200);
-	color: var(--blue-200);
-	transition: 300ms all;
+    background-color: transparent;
+    outline: 2px solid var(--blue-200);
+    color: var(--blue-200);
+    transition: 300ms all;
+    /* text-shadow: 0px 0px 10px var(--blue-200);
+    box-shadow: 0px 0px 10px var(--blue-200); */
 }
 
 .button-outlined:hover,
 .button-outlined:focus-visible {
-	outline-color: var(--blue-300);
-	color: var(--blue-300);
-	background-color: transparent;
+    text-shadow: 0px 0px 10px var(--blue-200);
+    box-shadow: 0px 0px 10px var(--blue-200);
+
+    background-color: transparent;
 }
 
 .button-outlined:disabled {
-	background-color: transparent;
-	color: var(--main-disabled);
-	outline-color: var(--main-disabled);
+    background-color: transparent;
+    color: var(--main-disabled);
+    outline-color: var(--main-disabled);
 }
 </style>
