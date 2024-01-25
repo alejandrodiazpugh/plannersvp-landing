@@ -1,5 +1,5 @@
 <template>
-    <section class="main-form padding-main" ref="formContainer">
+    <section class="main-form" ref="formContainer">
         <h2>Got questions?</h2>
         <p class="large">
             Fill out the form and we'll be sure to get back to you.

@@ -1,12 +1,12 @@
 <template>
-    <section class="main-banner" id="main-banner">
+    <section class="main-banner content-grid full-width" id="main-banner">
         <h2>Wait, how many people have confirmed?</h2>
         <p class="large">
             Organizing events can be exhausting. We created
             <span class="blue-200">PlanneRSVP</span> to create, manage, and
             process your guest list invitations in no time.
         </p>
-        <div class="card-container" ref="container">
+        <div class="card-container full-width" ref="container">
             <PrimitivesCard
                 v-for="card in cards"
                 :key="card.title"
@@ -65,6 +65,7 @@ onMounted(() => {
     padding-top: 76px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 50px;
 }
 

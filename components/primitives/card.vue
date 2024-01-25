@@ -18,6 +18,7 @@ const props = defineProps<Props>();
 <style scoped>
 .card {
     width: 300px;
+    flex-shrink: 0;
     aspect-ratio: 1;
     border-radius: 15px;
     background-color: var(--dark-100);

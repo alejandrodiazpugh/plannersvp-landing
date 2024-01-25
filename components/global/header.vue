@@ -18,11 +18,11 @@
     background: transparent;
     top: 10px;
     display: flex;
+    padding-inline-end: 100px;
     justify-content: flex-end;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     padding-top: 30px;
-    padding-inline: 30px;
     gap: 30px;
 }
 

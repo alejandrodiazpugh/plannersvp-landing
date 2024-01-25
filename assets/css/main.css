@@ -116,10 +116,6 @@ select {
     width: fit-content;
 }
 
-.padding-main {
-    padding-inline: 100px;
-}
-
 /* FONTS */
 body {
     font-family: "Epilogue", system-ui, -apple-system, BlinkMacSystemFont,
@@ -195,6 +191,21 @@ div.divider-line {
     background-color: var(--main-disabled);
     margin-inline: auto;
     margin-block: 100px;
+}
+
+/* CONTENT LAYOUT */
+
+.content-grid {
+    padding-bottom: 100px;
+    display: grid;
+    grid-template-columns: [full-width-start] 100px [content-start] 1fr [content-end] 100px [full-width-end];
+}
+
+.content-grid > :not(.full-width) {
+    grid-column: content;
+}
+.content-grid > .full-width {
+    grid-column: full-width;
 }
 
 /* INPUTS */

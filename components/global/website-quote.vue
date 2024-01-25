@@ -1,5 +1,5 @@
 <template>
-    <section class="website-quote padding-main">
+    <section class="website-quote">
         <div class="quote-text">
             <h2>Need a website?</h2>
             <div class="fit-content">

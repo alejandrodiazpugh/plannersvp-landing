@@ -1,5 +1,5 @@
 <template>
-    <section class="widget-integration padding-main">
+    <section class="widget-integration">
         <h2>...or maybe you already have one</h2>
         <p class="large">
             You can also seamlessly integrate our widget into your site, and
