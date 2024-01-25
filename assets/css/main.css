@@ -278,3 +278,12 @@ textarea {
     padding-left: 15px;
     line-height: 1;
 }
+
+@media only screen and (max-width: 499px) {
+    .content-grid {
+        grid-template-columns: [full-width-start] 20px [content-start] 1fr [content-end] 20px [full-width-end];
+    }
+    .website-quote {
+        flex-direction: column;
+    }
+}

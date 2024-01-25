@@ -97,4 +97,10 @@
         color: var(--blue-200);
     }
 }
+
+@media only screen and (max-width: 499px) {
+    .hero {
+        padding-inline: 20px;
+    }
+}
 </style>
