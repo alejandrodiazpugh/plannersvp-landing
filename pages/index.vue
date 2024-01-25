@@ -20,6 +20,7 @@ useHead({
         },
     ],
 });
+useRoute;
 </script>
 
 <style scoped></style>

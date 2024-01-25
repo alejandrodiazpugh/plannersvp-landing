@@ -1,11 +1,15 @@
 <template>
     <section class="main-banner content-grid" id="main-banner">
-        <h2>Wait, how many people have confirmed?</h2>
-        <p class="large">
-            Organizing events can be exhausting. We created
-            <span class="blue-200">PlanneRSVP</span> to create, manage, and
-            process your guest list invitations in no time.
-        </p>
+        <slot name="title">
+            <h2>Wait, how many people have confirmed?</h2>
+        </slot>
+        <slot name="copy-text">
+            <p class="large">
+                Organizing events can be exhausting. We created
+                <span class="blue-200">PlanneRSVP</span> to create, manage, and
+                process your guest list invitations in no time.
+            </p>
+        </slot>
         <div class="card-container full-width" ref="container">
             <PrimitivesCard
                 v-for="card in cards"

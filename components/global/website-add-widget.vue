@@ -1,14 +1,26 @@
 <template>
     <section class="widget-integration">
-        <h2>...or maybe you already have one</h2>
-        <p class="large">
-            You can also seamlessly integrate our widget into your site, and
-            manage your guest list through our app.
-        </p>
-        <PrimitivesButton outlined>We'll show you how</PrimitivesButton>
+        <slot name="title">
+            <h2>...or maybe you already have one</h2>
+        </slot>
+        <slot name="copy-text">
+            <p class="large">
+                You can also seamlessly integrate our widget into your site, and
+                manage your guest list through our app.
+            </p>
+        </slot>
+        <PrimitivesButton outlined>{{
+            props.buttonText || "We'll show you how"
+        }}</PrimitivesButton>
     </section>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+type Props = {
+    buttonText?: string;
+};
+
+const props = defineProps<Props>();
+</script>
 <style scoped>
 .widget-integration {
     text-align: center;

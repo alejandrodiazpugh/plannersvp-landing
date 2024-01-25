@@ -1,22 +1,32 @@
 <template>
     <section class="website-quote">
         <div class="quote-text">
-            <h2>Need a website?</h2>
+            <slot name="title">
+                <h2>Need a website?</h2>
+            </slot>
             <div class="fit-content">
-                <p class="large fit-content">
+                <p class="large fit-content" v-if="!props.spanish">
                     Preparing for a
                     <span class="blue-200 event-name" ref="currentEventType"
                         >{{ currentImage.name }} </span
                     >?
                 </p>
+                <p class="large fit-content" v-else>
+                    ¿Preparando todo para
+                    <span class="blue-200 event-name" ref="currentEventType"
+                        >{{ currentImage.nameEs }} </span
+                    >?
+                </p>
             </div>
-            <p class="large">
-                We can work together to build beautiful websites where your
-                guests can RSVP and keep up to date with all the details.
-            </p>
-            <PrimitivesButton class="cta-website"
-                >Get a free quote</PrimitivesButton
-            >
+            <slot name="copy-text">
+                <p class="large">
+                    We can work together to build beautiful websites where your
+                    guests can RSVP and keep up to date with all the details.
+                </p>
+            </slot>
+            <PrimitivesButton class="cta-website">{{
+                !props.spanish ? "Get a free quote" : "Cotiza gratis"
+            }}</PrimitivesButton>
         </div>
         <div class="image-container" ref="carousselImage">
             <NuxtImg
@@ -29,17 +39,26 @@
     </section>
 </template>
 <script setup lang="ts">
+type Props = {
+    spanish?: boolean;
+};
+
+const props = defineProps<Props>();
+
 const images = [
     {
         name: "business event",
+        nameEs: "el evento del trabajo",
         src: "/images/event.jpg",
     },
     {
         name: "wedding",
+        nameEs: "la boda",
         src: "/images/wedding.jpg",
     },
     {
         name: "party",
+        nameEs: "la fiesta",
         src: "/images/party.jpg",
     },
 ];

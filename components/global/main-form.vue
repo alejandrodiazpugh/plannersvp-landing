@@ -1,44 +1,63 @@
 <template>
     <section class="main-form" ref="formContainer">
-        <h2>Got questions?</h2>
-        <p class="large">
-            Fill out the form and we'll be sure to get back to you.
-        </p>
+        <slot name="title">
+            <h2>Got questions?</h2>
+        </slot>
+        <slot name="copy-text">
+            <p class="large">
+                Fill out the form and we'll be sure to get back to you.
+            </p>
+        </slot>
         <form class="contact-form">
             <PrimitivesInput
                 class="input-override"
                 label="Name"
-                placeholder="eg. Donna"
+                placeholder="Donna"
                 required
             />
             <PrimitivesInput
                 class="input-override"
                 label="Last Name"
-                placeholder="eg. Kelce"
+                placeholder="Kelce"
                 required
             />
             <PrimitivesInput
                 label="Email"
                 required
-                placeholder="eg. Kelce"
+                placeholder="eaglemom@chief.com"
                 class="email"
             />
             <PrimitivesTextarea
                 label="Message"
                 class="textarea-override"
-                placeholder="No need to be so thorough, we can discuss it later"
+                :placeholder="
+                    !props.spanish
+                        ? 'No need to be so thorough, we can discuss it later'
+                        : 'Deja aquí tu mensaje'
+                "
                 :limit="120"
                 required
             />
             <PrimitivesCheckbox
                 class="checkbox-override"
-                label="I agree to be contacted to the provided email address"
+                :label="
+                    !props.spanish
+                        ? 'I agree to be contacted to the provided email address'
+                        : 'Estoy de acuerdo con que me contacten al correo que proporcioné'
+                "
             />
-            <PrimitivesButton class="form-button">Send</PrimitivesButton>
+            <PrimitivesButton class="form-button">{{
+                props.spanish ? "Enviar" : "Send"
+            }}</PrimitivesButton>
         </form>
     </section>
 </template>
 <script setup lang="ts">
+type Props = {
+    spanish?: boolean;
+};
+
+const props = defineProps<Props>();
 const formContainer = ref(null);
 onMounted(() => {
     useIntersection(formContainer, "downwards-animation");

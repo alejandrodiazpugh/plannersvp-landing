@@ -1,17 +1,25 @@
 <template>
     <header class="header">
-        <PrimitivesButton outlined class="action-button"
-            >Log in</PrimitivesButton
-        >
-        <PrimitivesButton class="action-button">Sign up</PrimitivesButton>
+        <PrimitivesButton outlined class="action-button">{{
+            isEnglish() ? "Login" : "Iniciar Sesión"
+        }}</PrimitivesButton>
+        <PrimitivesButton class="action-button">{{
+            isEnglish() ? "Sign up" : "Inscribirme"
+        }}</PrimitivesButton>
         <div class="language-select">
             <Icon name="material-symbols:language" />
-            <a href="/es">ES</a>
-            <a href="/en">EN</a>
+            <a href="/es" :class="!isEnglish() ? 'active-language' : ''">ES</a>
+            <a href="/en" :class="isEnglish() ? 'active-language' : ''">EN</a>
         </div>
     </header>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const routeName = ref(useRoute().name?.toString());
+const isEnglish = () => {
+    if (!routeName.value || routeName.value == "index") return true;
+    return false;
+};
+</script>
 <style scoped>
 .header {
     position: absolute;
@@ -39,5 +47,11 @@
 }
 .language-select a {
     color: var(--light-100);
+    text-decoration: none;
+}
+
+.active-language {
+    text-decoration-line: underline !important;
+    color: var(--blue-200) !important;
 }
 </style>
