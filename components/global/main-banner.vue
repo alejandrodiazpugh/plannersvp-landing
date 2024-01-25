@@ -1,5 +1,5 @@
 <template>
-    <section class="main-banner content-grid full-width" id="main-banner">
+    <section class="main-banner content-grid" id="main-banner">
         <h2>Wait, how many people have confirmed?</h2>
         <p class="large">
             Organizing events can be exhausting. We created

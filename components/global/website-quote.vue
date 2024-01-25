@@ -78,6 +78,11 @@ onMounted(() => {
     flex-direction: row-reverse;
     gap: 90px;
     justify-content: center;
+
+    @media only screen and (max-width: 599px) {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
 }
 
 .image-container {

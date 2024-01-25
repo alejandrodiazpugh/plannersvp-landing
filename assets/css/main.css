@@ -186,7 +186,7 @@ body {
 }
 
 div.divider-line {
-    width: max(500px, 80vw);
+    width: min(500px, 80vw);
     height: 1px;
     background-color: var(--main-disabled);
     margin-inline: auto;
@@ -254,9 +254,12 @@ textarea {
 
 .checkbox-root {
     background-color: var(--light-100);
+    cursor: pointer;
+
     width: 25px;
     height: 25px;
     border-radius: 4px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -279,11 +282,11 @@ textarea {
     line-height: 1;
 }
 
-@media only screen and (max-width: 499px) {
+@media only screen and (max-width: 599px) {
     .content-grid {
         grid-template-columns: [full-width-start] 20px [content-start] 1fr [content-end] 20px [full-width-end];
     }
-    .website-quote {
-        flex-direction: column;
+    h1 {
+        font-size: 4rem; /* 48px */
     }
 }

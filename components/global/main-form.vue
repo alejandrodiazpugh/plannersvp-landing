@@ -5,8 +5,14 @@
             Fill out the form and we'll be sure to get back to you.
         </p>
         <form class="contact-form">
-            <PrimitivesInput label="Name" placeholder="eg. Donna" required />
             <PrimitivesInput
+                class="input-override"
+                label="Name"
+                placeholder="eg. Donna"
+                required
+            />
+            <PrimitivesInput
+                class="input-override"
                 label="Last Name"
                 placeholder="eg. Kelce"
                 required
@@ -57,6 +63,13 @@ onMounted(() => {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 36px;
     row-gap: 20px;
+
+    @media only screen and (max-width: 499px) {
+        padding-inline: 20px;
+        > .input-override {
+            grid-column: span 2;
+        }
+    }
 }
 
 .email,

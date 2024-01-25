@@ -37,13 +37,26 @@
         rgba(24, 28, 41, 0.5) 76.5%,
         rgba(24, 28, 41, 0) 100%
     );
+
+    @media only screen and (max-width: 599px) {
+        padding-inline: 20px;
+        justify-content: center;
+    }
 }
 
 .logo-container {
     position: absolute;
     width: min(700px, 50vw);
     height: 100%;
-    right: -18%;
+    right: 0;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    @media only screen and (max-width: 599px) {
+        opacity: 0.1;
+        left: 50%;
+        top: 80%;
+        width: 100%;
+    }
 }
 
 @keyframes center {
@@ -65,6 +78,10 @@
 .hero-cta-buttons {
     display: flex;
     gap: 30px;
+
+    @media only screen and (max-width: 599px) {
+        flex-direction: column;
+    }
 }
 
 .fill-color-element {
@@ -95,12 +112,6 @@
 
     to {
         color: var(--blue-200);
-    }
-}
-
-@media only screen and (max-width: 499px) {
-    .hero {
-        padding-inline: 20px;
     }
 }
 </style>
