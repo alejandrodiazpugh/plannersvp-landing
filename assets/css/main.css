@@ -240,22 +240,21 @@ textarea {
 }
 
 /* RADIX STYLINGS */
-.checkbox-container button {
-    all: unset;
-}
 
 .checkbox-root {
-    background-color: white;
+    background-color: var(--light-100);
     width: 25px;
     height: 25px;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
     box-shadow: 0 2px 10px var(--dark-100);
+    transition: 300ms all;
 }
 .checkbox-root:hover {
-    background-color: var(--blue-200);
+    background-color: var(--light-100);
 }
 
 .checkbox-indicator {
@@ -264,7 +263,7 @@ textarea {
 
 .label {
     color: white;
+    user-select: none;
     padding-left: 15px;
-    font-size: 15px;
     line-height: 1;
 }
