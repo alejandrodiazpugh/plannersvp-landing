@@ -1,5 +1,5 @@
 <template>
-    <section class="main-form padding-main">
+    <section class="main-form padding-main" ref="formContainer">
         <h2>Got questions?</h2>
         <p class="large">
             Fill out the form and we'll be sure to get back to you.
@@ -24,11 +24,20 @@
                 :limit="120"
                 required
             />
+            <PrimitivesCheckbox
+                class="checkbox-override"
+                label="I agree to be contacted to the provided email address"
+            />
             <PrimitivesButton class="form-button">Send</PrimitivesButton>
         </form>
     </section>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const formContainer = ref(null);
+onMounted(() => {
+    useIntersection(formContainer, "downwards-animation");
+});
+</script>
 <style scoped>
 .main-form {
     text-align: center;
@@ -51,11 +60,9 @@
 }
 
 .email,
-.textarea-override {
-    grid-column: span 2;
-}
-
-.form-button {
+.textarea-override,
+.form-button,
+.checkbox-override {
     grid-column: span 2;
 }
 </style>

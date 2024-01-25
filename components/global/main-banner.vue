@@ -44,28 +44,8 @@ const cards = [
 
 const container = ref(null) as Ref<null | HTMLDivElement>;
 
-const fadeInOnScroll = () => {
-    if (!container.value) return;
-    const options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0, // Adjust this threshold based on your needs
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                container.value?.classList.add("card-animation");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, options);
-
-    observer.observe(container.value);
-};
-
 onMounted(() => {
-    fadeInOnScroll();
+    useIntersection(container, "card-animation");
 });
 </script>
 <style scoped>
