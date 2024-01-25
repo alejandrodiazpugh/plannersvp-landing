@@ -11,24 +11,24 @@
         <form class="contact-form">
             <PrimitivesInput
                 class="input-override"
-                label="Name"
+                :label="!props.spanish ? 'Name' : 'Nombre'"
                 placeholder="Donna"
                 required
             />
             <PrimitivesInput
                 class="input-override"
-                label="Last Name"
+                :label="!props.spanish ? 'Last Name' : 'Apellido'"
                 placeholder="Kelce"
                 required
             />
             <PrimitivesInput
-                label="Email"
+                :label="!props.spanish ? 'Email' : 'Correo electrónico'"
                 required
                 placeholder="eaglemom@chief.com"
                 class="email"
             />
             <PrimitivesTextarea
-                label="Message"
+                :label="!props.spanish ? 'Message' : 'Mensaje'"
                 class="textarea-override"
                 :placeholder="
                     !props.spanish

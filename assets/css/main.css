@@ -303,6 +303,19 @@ div.divider-line {
     margin-bottom: 48px;
 }
 
+/* ----------- WEBSITE QUOTE ----------- */
+
+.quote-text h2 {
+    margin-bottom: 24px;
+}
+
+.quote-text p:first-of-type {
+    margin-bottom: 12px;
+}
+.quote-text p:last-of-type {
+    margin-bottom: 72px;
+}
+
 /* CONTENT LAYOUT */
 
 .content-grid {
