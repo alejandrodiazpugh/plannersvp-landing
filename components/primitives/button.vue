@@ -50,8 +50,10 @@ const emit = defineEmits(["buttonClick"]);
     box-shadow: 0px 0px 10px var(--blue-200);
 }
 
-.button:active {
+.button:active,
+.button-outlined:active {
     box-shadow: none;
+    text-shadow: none;
 }
 
 .button:disabled {

@@ -24,7 +24,7 @@
                 :limit="120"
                 required
             />
-            <PrimitivesButton>Send</PrimitivesButton>
+            <PrimitivesButton class="form-button">Send</PrimitivesButton>
         </form>
     </section>
 </template>
@@ -52,6 +52,10 @@
 
 .email,
 .textarea-override {
+    grid-column: span 2;
+}
+
+.form-button {
     grid-column: span 2;
 }
 </style>

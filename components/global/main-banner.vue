@@ -1,5 +1,5 @@
 <template>
-    <section class="main-banner">
+    <section class="main-banner" id="main-banner">
         <h2>Wait, how many people have confirmed?</h2>
         <p class="large">
             Organizing events can be exhausting. We created
@@ -44,8 +44,8 @@ const fadeInOnScroll = () => {
     if (!container.value) return;
     const options = {
         root: null,
-        rootMargin: "-20px",
-        threshold: 0.0, // Adjust this threshold based on your needs
+        rootMargin: "0px",
+        threshold: 0, // Adjust this threshold based on your needs
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -78,7 +78,7 @@ onMounted(() => {
 }
 
 .card-container {
-    margin-top: 76px;
+    padding-top: 76px;
     display: flex;
     justify-content: center;
     gap: 50px;
