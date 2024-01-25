@@ -21,6 +21,6 @@
   },
   "overrides": {
     "vite": "^5.0.12",
-    "lodash": "^4.17.21"
+    "lodash.pick": ">=4.17.19"
   }
 }
