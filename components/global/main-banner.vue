@@ -10,6 +10,7 @@
             <PrimitivesCard
                 v-for="card in cards"
                 :key="card.title"
+                :icon="card.icon"
                 :class="card.index"
                 :title="card.title"
             >
@@ -23,16 +24,19 @@
 const cards = [
     {
         title: "Create",
+        icon: "cil:lightbulb",
         text: "Set up an event, number of guests, and upload your list.",
         index: "first",
     },
     {
         title: "Manage",
+        icon: "streamline:hand-held-tablet-writing",
         text: "Add the RSVP form, embed it to a website, or send it directly to them",
         index: "second",
     },
     {
         title: "Process",
+        icon: "uis:process",
         text: "Track guests responses, their form submissions, and more!",
         index: "third",
     },

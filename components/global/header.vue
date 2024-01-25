@@ -4,6 +4,11 @@
             >Log in</PrimitivesButton
         >
         <PrimitivesButton class="action-button">Sign up</PrimitivesButton>
+        <div class="language-select">
+            <Icon name="material-symbols:language" />
+            <a href="/es">ES</a>
+            <a href="/en">EN</a>
+        </div>
     </header>
 </template>
 <script setup lang="ts"></script>
@@ -14,6 +19,7 @@
     top: 10px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 100%;
     padding-top: 30px;
     padding-inline: 30px;
@@ -24,5 +30,14 @@
     font-size: 16px;
     padding-inline: 20px;
     padding-block: 6px;
+}
+
+.language-select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.language-select a {
+    color: var(--light-100);
 }
 </style>
