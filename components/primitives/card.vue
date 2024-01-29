@@ -21,7 +21,7 @@ const props = defineProps<Props>();
     flex-shrink: 0;
     aspect-ratio: 1;
     border-radius: 15px;
-    background-color: var(--dark-100);
+    background-color: var(--dark);
     padding-block: 27px;
     padding-inline: 23px;
     text-align: left;

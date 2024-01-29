@@ -24,9 +24,20 @@
                     guests can RSVP and keep up to date with all the details.
                 </p>
             </slot>
-            <PrimitivesButton class="cta-website">{{
-                !props.spanish ? "Get a free quote" : "Cotiza gratis"
-            }}</PrimitivesButton>
+            <ClientOnly>
+                <PrimitivesModal title="Quote">
+                    <template #trigger>
+                        <PrimitivesButton class="cta-website">{{
+                            !props.spanish
+                                ? "Get a free quote"
+                                : "Cotiza gratis"
+                        }}</PrimitivesButton>
+                    </template>
+                    <template #content>
+                        <QuoteForm />
+                    </template>
+                </PrimitivesModal>
+            </ClientOnly>
         </div>
         <div class="image-container" ref="carousselImage">
             <NuxtImg
@@ -137,6 +148,7 @@ onMounted(() => {
 
 .cta-website {
     margin-block-start: auto;
+    width: 100%;
 }
 
 .event-name {

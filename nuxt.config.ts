@@ -3,10 +3,7 @@ export default defineNuxtConfig({
     devtools: { enabled: false },
     css: ["~/assets/css/main.css"],
     modules: ["nuxt-icon", "@nuxt/image", "radix-vue/nuxt"],
-    image: {
-        quality: 80,
-        format: ["webp"],
-    },
+
     app: {
         head: {
             charset: "utf-8",
@@ -15,5 +12,9 @@ export default defineNuxtConfig({
     },
     routeRules: {
         "/en": { redirect: "/" },
+    },
+    image: {
+        quality: 80,
+        format: ["webp"],
     },
 });
