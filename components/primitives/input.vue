@@ -26,17 +26,4 @@ const props = defineProps<Props>();
 	flex-direction: column;
 	align-items: flex-start;
 }
-
-.input {
-	border-radius: 10px;
-	border: none;
-	outline: 2px solid var(--blue-200);
-	padding-block: 4px;
-	padding-inline: 10px;
-	width: 100%;
-}
-
-.input:focus {
-	outline: 2px solid var(--blue-100);
-}
 </style>
