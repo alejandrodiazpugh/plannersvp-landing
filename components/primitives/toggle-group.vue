@@ -1,5 +1,6 @@
 <template>
-	<div>
+	<div class="grid-2 input-section toggle-section">
+		<label>{{ props.label }}</label>
 		<ToggleGroupRoot v-model="toggleState" class="ToggleGroup">
 			<ToggleGroupItem
 				v-for="item in props.items"
@@ -26,6 +27,7 @@ export type ToggleItem = {
 
 type Props = {
 	items: ToggleItem[];
+	label: string;
 };
 
 const props = defineProps<Props>();

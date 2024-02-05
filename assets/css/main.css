@@ -8,6 +8,7 @@
 	--blue-200: #718cd8;
 	--blue-300: #715dd8;
 	--main-disabled: #cfd4e2;
+	--main-error: #c53a3a;
 }
 
 /* Box sizing rules */
@@ -552,6 +553,14 @@ textarea {
 }
 .ToggleGroupItem:focus {
 	position: relative;
+}
+
+.toggle-section > * {
+	width: 100%;
+}
+
+.toggle-section:last-of-type {
+	margin-bottom: 20px;
 }
 
 /* CUSTOM INPUT DATE */
