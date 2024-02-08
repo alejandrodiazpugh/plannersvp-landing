@@ -1,5 +1,5 @@
 <template>
-	<DialogRoot>
+	<DialogRoot v-on:update:open="(v) => emit('changeOpen', v)">
 		<DialogTrigger class="DialogTrigger">
 			<slot name="trigger" />
 			<DialogPortal>
@@ -25,6 +25,8 @@
 type Props = {
 	title: string;
 };
+
+const emit = defineEmits(['changeOpen']);
 
 const props = defineProps<Props>();
 </script>

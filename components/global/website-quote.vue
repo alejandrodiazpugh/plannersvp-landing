@@ -1,78 +1,91 @@
 <template>
-    <section class="website-quote">
-        <div class="quote-text">
-            <slot name="title">
-                <h2>Need a website?</h2>
-            </slot>
-            <div class="fit-content">
-                <p class="large fit-content" v-if="!props.spanish">
-                    Preparing for a
-                    <span class="blue-200 event-name" ref="currentEventType"
-                        >{{ currentImage.name }} </span
-                    >?
-                </p>
-                <p class="large fit-content" v-else>
-                    ¿Preparando todo para
-                    <span class="blue-200 event-name" ref="currentEventType"
-                        >{{ currentImage.nameEs }} </span
-                    >?
-                </p>
-            </div>
-            <slot name="copy-text">
-                <p class="large">
-                    We can work together to build beautiful websites where your
-                    guests can RSVP and keep up to date with all the details.
-                </p>
-            </slot>
-            <ClientOnly>
-                <PrimitivesModal title="Quote">
-                    <template #trigger>
-                        <PrimitivesButton class="cta-website">{{
-                            !props.spanish
-                                ? "Get a free quote"
-                                : "Cotiza gratis"
-                        }}</PrimitivesButton>
-                    </template>
-                    <template #content>
-                        <QuoteForm />
-                    </template>
-                </PrimitivesModal>
-            </ClientOnly>
-        </div>
-        <div class="image-container" ref="carousselImage">
-            <NuxtImg
-                :key="currentImage.name"
-                :src="currentImage.src"
-                :alt="currentImage.name"
-                class="quote-image swipe"
-            />
-        </div>
-    </section>
+	<section class="website-quote">
+		<div class="quote-text">
+			<slot name="title">
+				<h2>Need a website?</h2>
+			</slot>
+			<div class="fit-content">
+				<p class="large fit-content" v-if="!props.spanish">
+					Preparing for a
+					<span class="blue-200 event-name" ref="currentEventType"
+						>{{ currentImage.name }} </span
+					>?
+				</p>
+				<p class="large fit-content" v-else>
+					¿Preparando todo para
+					<span class="blue-200 event-name" ref="currentEventType"
+						>{{ currentImage.nameEs }} </span
+					>?
+				</p>
+			</div>
+			<slot name="copy-text">
+				<p class="large">
+					We can work together to build beautiful websites where your
+					guests can RSVP and keep up to date with all the details.
+				</p>
+			</slot>
+			<ClientOnly>
+				<PrimitivesModal
+					title="Quote"
+					@change-open="(v) => (v ? modalState === 'unsent' : null)">
+					<template #trigger>
+						<PrimitivesButton class="cta-website">{{
+							!props.spanish
+								? 'Get a free quote'
+								: 'Cotiza gratis'
+						}}</PrimitivesButton>
+					</template>
+					<template #content>
+						<QuoteForm
+							@form-change="(v) => (modalState = v)"
+							v-if="modalState === 'unsent'" />
+						<div v-else-if="modalState === 'sent'">
+							<p class="large">Thanks! We'll be in touch soon.</p>
+						</div>
+						<div v-else>
+							<p class="large">
+								Oops. An error occured, try again later.
+							</p>
+						</div>
+					</template>
+				</PrimitivesModal>
+			</ClientOnly>
+		</div>
+		<div class="image-container" ref="carousselImage">
+			<NuxtImg
+				:key="currentImage.name"
+				:src="currentImage.src"
+				:alt="currentImage.name"
+				class="quote-image swipe" />
+		</div>
+	</section>
 </template>
 <script setup lang="ts">
 type Props = {
-    spanish?: boolean;
+	spanish?: boolean;
 };
 
 const props = defineProps<Props>();
 
 const images = [
-    {
-        name: "business event",
-        nameEs: "el evento del trabajo",
-        src: "/images/event.jpg",
-    },
-    {
-        name: "wedding",
-        nameEs: "la boda",
-        src: "/images/wedding.jpg",
-    },
-    {
-        name: "party",
-        nameEs: "la fiesta",
-        src: "/images/party.jpg",
-    },
+	{
+		name: 'business event',
+		nameEs: 'el evento del trabajo',
+		src: '/images/event.jpg',
+	},
+	{
+		name: 'wedding',
+		nameEs: 'la boda',
+		src: '/images/wedding.jpg',
+	},
+	{
+		name: 'party',
+		nameEs: 'la fiesta',
+		src: '/images/party.jpg',
+	},
 ];
+
+const modalState: Ref<'unsent' | 'error' | 'sent'> = ref('unsent');
 
 const currentEventType = ref(null) as Ref<null | HTMLSpanElement>;
 
@@ -80,126 +93,126 @@ let timer: NodeJS.Timeout;
 const currentIndex = ref(0);
 
 function startCaroussel() {
-    timer = setInterval(next, 5500);
+	timer = setInterval(next, 5500);
 }
 
 function next() {
-    currentIndex.value += 1;
+	currentIndex.value += 1;
 }
 
 const currentImage = computed(() => {
-    return images[Math.abs(currentIndex.value) % images.length];
+	return images[Math.abs(currentIndex.value) % images.length];
 });
 
 watch(currentImage, (newValue) => {
-    setTimeout(() => {
-        currentEventType.value?.classList.remove("typing");
-    }, 5000);
-    currentEventType.value?.classList.add("typing");
+	setTimeout(() => {
+		currentEventType.value?.classList.remove('typing');
+	}, 5000);
+	currentEventType.value?.classList.add('typing');
 });
 
 onMounted(() => {
-    startCaroussel();
+	startCaroussel();
 });
 </script>
 <style scoped>
 .website-quote {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 90px;
-    justify-content: center;
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 90px;
+	justify-content: center;
 
-    @media only screen and (max-width: 599px) {
-        flex-direction: column-reverse;
-        gap: 30px;
-    }
+	@media only screen and (max-width: 599px) {
+		flex-direction: column-reverse;
+		gap: 30px;
+	}
 }
 
 .image-container {
-    border-radius: 15px;
-    overflow: hidden;
-    flex-basis: 50%;
-    aspect-ratio: 1;
-    display: flex;
-    position: relative;
+	border-radius: 15px;
+	overflow: hidden;
+	flex-basis: 50%;
+	aspect-ratio: 1;
+	display: flex;
+	position: relative;
 }
 
 .quote-image {
-    object-fit: cover;
-    transition: 0.9s all;
+	object-fit: cover;
+	transition: 0.9s all;
 }
 
 .quote-text {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
+	display: flex;
+	flex-direction: column;
+	flex-basis: 50%;
 }
 
 .quote-text h2 {
-    margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 .quote-text p:first-of-type {
-    margin-bottom: 12px;
+	margin-bottom: 12px;
 }
 .quote-text p:last-of-type {
-    margin-bottom: 72px;
+	margin-bottom: 72px;
 }
 
 .cta-website {
-    margin-block-start: auto;
-    width: 100%;
+	margin-block-start: auto;
+	width: 100%;
 }
 
 .event-name {
-    width: 0;
-    max-width: fit-content;
-    display: inline-block;
-    vertical-align: bottom;
-    border-right: 0.15em solid var(--blue-200); /* The typwriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
+	width: 0;
+	max-width: fit-content;
+	display: inline-block;
+	vertical-align: bottom;
+	border-right: 0.15em solid var(--blue-200); /* The typwriter cursor */
+	white-space: nowrap; /* Keeps the content on a single line */
+	margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+	overflow: hidden; /* Ensures the content is not revealed until the animation */
 }
 .typing {
-    animation: typing 5s steps(60, end), blink-caret 0.75s step-end infinite;
+	animation: typing 5s steps(60, end), blink-caret 0.75s step-end infinite;
 }
 
 .swipe {
-    animation: swipe 5s forwards;
+	animation: swipe 5s forwards;
 }
 
 @keyframes swipe {
-    from {
-        transform: translateX(-100%);
-    }
-    20%,
-    90% {
-        transform: translateX(0px);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+	from {
+		transform: translateX(-100%);
+	}
+	20%,
+	90% {
+		transform: translateX(0px);
+	}
+	to {
+		transform: translateX(-100%);
+	}
 }
 
 @keyframes typing {
-    from,
-    to {
-        width: 0;
-    }
-    50%,
-    70% {
-        width: 100%;
-    }
+	from,
+	to {
+		width: 0;
+	}
+	50%,
+	70% {
+		width: 100%;
+	}
 }
 
 @keyframes blink-caret {
-    from,
-    to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: var(--blue-200);
-    }
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: var(--blue-200);
+	}
 }
 </style>

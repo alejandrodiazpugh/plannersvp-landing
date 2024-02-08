@@ -30,7 +30,6 @@ const emit = defineEmits(['inputChange']);
 const dateSelected = ref('');
 
 watch(dateSelected, (newValue) => {
-	console.log(newValue);
 	emit('inputChange', newValue);
 });
 

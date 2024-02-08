@@ -31,7 +31,12 @@ type Props = {
 };
 
 const props = defineProps<Props>();
+const emit = defineEmits(['inputChange']);
 const toggleState = ref('left');
+
+watch(toggleState, (newValue) => {
+	emit('inputChange', newValue);
+});
 </script>
 <style scoped>
 .item-content {
